@@ -82,3 +82,6 @@ In case of errors, try to restart WSL:
    wsl -d NixOS --user root exit
    wsl -t NixOS
 ```
+
+## Copy SSH Configs
+TBD
