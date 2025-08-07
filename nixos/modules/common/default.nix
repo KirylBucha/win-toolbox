@@ -104,6 +104,7 @@
       bat
       zsh
       tmux
+      fzf
       file
       git
       htop
