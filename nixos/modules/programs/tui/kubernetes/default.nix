@@ -13,6 +13,6 @@
     kubernetes-helm
 
     # OpenShift CLI (OC) - using nixpkgs if available
-    openshift-client
+    #    openshift-client
   ];
 }
