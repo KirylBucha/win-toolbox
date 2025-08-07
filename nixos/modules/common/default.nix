@@ -120,6 +120,7 @@
       just
       gcc
       gnumake
+      kubectl
     ];
 
     sessionVariables = {
