@@ -60,9 +60,9 @@
             owner = "sunlei";
             repo = "zsh-ssh";
             # It's best practice to use a specific commit hash for 'rev'.
-            rev = "v0.9.0";
+            rev = "master";
             # The correct sha256 for the rev above.
-            sha256 = "17rby45q16z08h2q1a5gwpd49p0pcmn7jczwl5j7j56j1l6a1j17";
+            sha256 = "abc";
         };
       };
     };
