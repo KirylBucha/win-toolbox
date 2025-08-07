@@ -12,7 +12,6 @@
   imports = [
     inputs.home-manager.nixosModules.home-manager
     ../../modules/stylix
-    ../../modules/programs
   ];
 
   system.autoUpgrade = {
