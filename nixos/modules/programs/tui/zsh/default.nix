@@ -39,8 +39,15 @@
 
         # Visual mode for Zsh
         # { name = "b4b4r07/zsh-vimode-visual"; }
+      ];
+    };
 
-     # Corrected 4th entry
+    oh-my-zsh = {
+      enable = true;
+      plugins = [
+        "git"
+        "docker"
+        # Corrected 4th entry
         {
           name = "zsh-ssh"; # Name of the plugin's directory
           src = pkgs.fetchFromGitHub {
@@ -50,14 +57,6 @@
             sha256 = "sha256-hash-goes-here";
           };
         }
-      ];
-    };
-
-    oh-my-zsh = {
-      enable = true;
-      plugins = [
-        "git"
-        "docker"
       ];
     };
 
