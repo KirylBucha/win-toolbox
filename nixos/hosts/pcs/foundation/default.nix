@@ -15,11 +15,11 @@
 
   # Ensure both users exist during transition
   users.users = {
-    nixos = {
-      isNormalUser = true;
-      extraGroups = ["wheel" "networkmanager"];
-      # Keep nixos user temporarily
-    };
+#    nixos = {
+#      isNormalUser = true;
+#      extraGroups = ["wheel" "networkmanager"];
+#      # Keep nixos user temporarily
+#    };
     ${vars.user.name} = {
       isNormalUser = true;
       extraGroups = ["wheel" "networkmanager" "docker"];
