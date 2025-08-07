@@ -4,9 +4,12 @@
   config,
   ...
 }: {
-#  programs.kubectl = {
-#    enable = true;
-#  };
+
+  # packages for administration tasks
+  environment.systemPackages = with pkgs; [
+    kubectl
+    kubernetes
+  ];
 
   home.packages = with pkgs; [
     # Helm - available directly in nixpkgs
