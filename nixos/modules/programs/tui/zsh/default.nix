@@ -40,15 +40,16 @@
         # Visual mode for Zsh
         # { name = "b4b4r07/zsh-vimode-visual"; }
 
-#        {
-#            name = "zsh-ssh";
-#            src = pkgs.fetchFromGitHub {
-#              owner = "sunlei";
-#              repo = "zsh-ssh";
+        {
+            name = "zsh-ssh";
+            src = pkgs.fetchFromGitHub {
+              owner = "sunlei";
+              repo = "zsh-ssh";
 #              rev = "master"; # Or a specific commit hash
-#              sha256 = "sha256-hash-goes-here"; # You'll get this on the first build
-#            };
-#         }
+              sha256 = "sha256-hash-goes-here"; # You'll get this on the first build
+            };
+         }
+
       ];
     };
 
