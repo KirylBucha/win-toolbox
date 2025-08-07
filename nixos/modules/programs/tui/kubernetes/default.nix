@@ -4,9 +4,9 @@
   config,
   ...
 }: {
-  programs.kubectl = {
-    enable = true;
-  };
+#  programs.kubectl = {
+#    enable = true;
+#  };
 
   home.packages = with pkgs; [
     # Helm - available directly in nixpkgs
