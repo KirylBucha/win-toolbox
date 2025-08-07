@@ -7,6 +7,14 @@
     enable = true;
     enableCompletion = true;
     # syntaxHighlighting.enable = true;
+    
+    initExtra = ''
+      # Install zsh-ssh plugin if not already installed
+      if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-ssh" ]; then
+        echo "Installing zsh-ssh plugin..."
+        git clone https://github.com/sunlei/zsh-ssh ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-ssh
+      fi
+    '';
     zplug = {
       enable = true;
       plugins = [
