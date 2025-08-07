@@ -2,19 +2,26 @@
   vars,
   pkgs,
   ...
-}: {
+}: let
+  # Define our custom plugin sources using fetchFromGitHub
+  zsh-autosuggestions = pkgs.fetchFromGitHub {
+    owner = "zsh-users";
+    repo = "zsh-autosuggestions";
+    rev = "v0.7.0"; # Use a specific tag or commit for reproducibility
+    sha256 = "sha256-1nqrkxL65szp45fs6i4chXX1nPAyPaIVZdIuGV2naKI="; # The hash ensures the downloaded code is what you expect
+  };
+  
+  zsh-ssh = pkgs.fetchFromGitHub {
+    owner = "sunlei";
+    repo = "zsh-ssh";
+    rev = "0.0.1"; # Using a version tag, adjust if needed
+    sha256 = "sha256-0RnRZhgBcZCjLXeGqKBkZmKQAZl3O7LiMgKqvgT8zGE="; # Replace with the correct hash
+  };
+in {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
     # syntaxHighlighting.enable = true;
-    
-    initExtra = ''
-      # Install zsh-ssh plugin if not already installed
-      if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-ssh" ]; then
-        echo "Installing zsh-ssh plugin..."
-        git clone https://github.com/sunlei/zsh-ssh ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-ssh
-      fi
-    '';
     zplug = {
       enable = true;
       plugins = [
@@ -29,6 +36,9 @@
 
         # Suggests commands as you type based on history and completions
         {name = "zsh-users/zsh-autosuggestions";}
+
+        # Better host completion for ssh in Zsh.
+        {name = "sunlei/zsh-ssh";}
 
         # Reminds you to use commands you've forgotten
         #{name = "MichaelAquilina/zsh-you-should-use";}
@@ -55,7 +65,6 @@
       plugins = [
         "git"
         "docker"
-        "zsh-ssh"
       ];
     };
 
