@@ -3,5 +3,6 @@
     ./git
     ./zsh
     ./kubernetes
+    ./zoxide
   ];
 }
