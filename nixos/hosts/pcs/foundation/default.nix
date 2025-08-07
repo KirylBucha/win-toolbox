@@ -11,7 +11,7 @@
     ../../../modules/common
   ];
 
-  networking.hostName = "kb-nixos-vs.datamola.com";
+  networking.hostName = "kb-nixos-vs";
 
   # Ensure both users exist during transition
   users.users = {
