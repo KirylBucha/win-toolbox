@@ -61,3 +61,24 @@ Clone repository:
 ```Bash
 git clone git@github.com:KirylBucha/win-toolbox.git
 ```
+
+### Install Toolbox
+```Bash
+cd /home/nixos/win-toolbox/nixos
+sudo nixos-rebuild switch --flake .#foundation
+```
+
+### Update Toolbox from Repo
+```Bash
+cd /home/nixos/win-toolbox/nixos
+git pull
+sudo nixos-rebuild switch --flake .#foundation
+```
+
+## Troubleshooting: NixOS
+
+In case of errors, try to restart WSL:
+```Bash
+   wsl -d NixOS --user root exit
+   wsl -t NixOS
+```
