@@ -4,7 +4,9 @@
 
 <instance-profile id="nc"
                  name="NixOS Configuration"
-                 start-page="starter-topic.md">
+                 start-page="00-How-to-Setup-NixOS.md">
 
-    <toc-element topic="starter-topic.md"/>
+    <toc-element toc-title="NixOS - WSL 2">
+        <toc-element topic="00-How-to-Setup-NixOS.md"/>
+    </toc-element>
 </instance-profile>

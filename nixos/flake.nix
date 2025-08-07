@@ -1,5 +1,5 @@
 {
-  description = "ghilston's Nix Config";
+  description = "Nix Config";
 
   inputs = {
     # Nixpkgs
@@ -60,6 +60,7 @@
     formatter = forEachSystem (pkgs: pkgs.alejandra);
 
     nixosConfigurations = {
+      #   1-st Config
       foundation = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {

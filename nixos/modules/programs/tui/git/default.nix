@@ -6,6 +6,6 @@
   programs.git = {
     enable = true;
     userName = "KBucha";
-    userEmail = "KBucha@datamola.com$";
+    userEmail = "KBucha@datamola.com";
   };
 }

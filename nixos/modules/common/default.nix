@@ -67,8 +67,6 @@
   };
 
   programs = {
-    # Enable zoxide
-    zoxide.enable = true;
     virt-manager.enable = false;
   };
 
