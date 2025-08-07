@@ -49,23 +49,24 @@
         "docker"
         "zsh-ssh"
       ];
+
+       # 2. Define your custom plugin here.
+       customPlugins = {
+         "zsh-ssh" = {
+             # The name of the main plugin file.
+             file = "zsh-ssh.plugin.zsh";
+             src = pkgs.fetchFromGitHub {
+               owner = "sunlei";
+               repo = "zsh-ssh";
+               # It's best practice to use a specific commit hash for 'rev'.
+               rev = "master";
+               # The correct sha256 for the rev above.
+               sha256 = "abc";
+           };
+         };
+       };
     };
 
-    # 2. Define your custom plugin here.
-    customPlugins = {
-      "zsh-ssh" = {
-          # The name of the main plugin file.
-          file = "zsh-ssh.plugin.zsh";
-          src = pkgs.fetchFromGitHub {
-            owner = "sunlei";
-            repo = "zsh-ssh";
-            # It's best practice to use a specific commit hash for 'rev'.
-            rev = "master";
-            # The correct sha256 for the rev above.
-            sha256 = "abc";
-        };
-      };
-    };
 
 
     shellAliases = {
