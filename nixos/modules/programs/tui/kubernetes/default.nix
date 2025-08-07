@@ -8,7 +8,7 @@
   # packages for administration tasks
   environment.systemPackages = with pkgs; [
     kubectl
-    kubernetes
+#    kubernetes
   ];
 
   home.packages = with pkgs; [
