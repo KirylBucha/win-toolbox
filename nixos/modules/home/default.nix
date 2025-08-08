@@ -41,10 +41,10 @@
       );
   };
 
-  stylix.targets = {
-    firefox.enable = false;
-    qt.enable = false;
-  };
+#  stylix.targets = {
+#    firefox.enable = false;
+#    qt.enable = false;
+#  };
 
 
   services.mako.enable = false;
