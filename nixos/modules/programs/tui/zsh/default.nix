@@ -9,22 +9,26 @@
 #  '';
 #in
 {
-#  # Manual download of zsh-ssh plugin to oh-my-zsh custom directory
-#  home.file.".oh-my-zsh/custom/plugins/zsh-ssh" = {
-#    source = pkgs.fetchFromGitHub {
-#      owner = "sunlei";
-#      repo = "zsh-ssh";
-#      rev = "master";
-#      sha256 = "sha256-lc3fRcM1IazuDRvlOmPEiHk5ddWalqsiNNKcOj8eUSs=";
-#    };
-#    recursive = true;
-#  };
+      # Manual download of zsh-ssh plugin to oh-my-zsh custom directory
+      home.file.".oh-my-zsh/custom/plugins/zsh-ssh" = {
+        source = pkgs.fetchFromGitHub {
+          owner = "sunlei";
+          repo = "zsh-ssh";
+          rev = "master";
+          sha256 = "sha256-lc3fRcM1IazuDRvlOmPEiHk5ddWalqsiNNKcOj8eUSs=";
+        };
+        recursive = true;
+      };
 
      programs.zsh = {
        enable = true;
        enableCompletion = true;
-       # Append to the end of the generated .zshrc
-#       initExtra = prependZshCustom;
+
+       # Ensure OMZ uses the writable custom dir in $HOME, not the read-only store
+       initExtraFirst = ''
+          export ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
+       '';
+
        # syntaxHighlighting.enable = true;
        zplug = {
          enable = true;
@@ -62,18 +66,6 @@
 
        oh-my-zsh = {
          enable = true;
-         # Declare the custom plugin here so OMZ knows where to find it
-         customPlugins = {
-           zsh-ssh = {
-             src = pkgs.fetchFromGitHub {
-               owner = "sunlei";
-               repo = "zsh-ssh";
-               rev = "master"; # Tip: pin to a commit SHA for reproducibility
-               sha256 = "sha256-lc3fRcM1IazuDRvlOmPEiHk5ddWalqsiNNKcOj8eUSs=";
-             };
-           };
-         };
-
          plugins = [
            "git"
            "docker"
