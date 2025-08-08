@@ -41,14 +41,16 @@
            # Better history search
            {name = "zsh-users/zsh-history-substring-search";}
 
+           # Better host completion for ssh in Zsh.
+           {name = "sunlei/zsh-ssh";}
+
            # Auto-pairing of quotes, brackets, etc.
            {name = "hlissner/zsh-autopair";}
-
            # Directory listings with colors
            # { name = "supercrabtree/k"; }
 
            # Visual mode for Zsh
-           # { name = "b4b4r07/zsh-vimode-visual"; }
+           { name = "b4b4r07/zsh-vimode-visual"; }
          ];
        };
 
@@ -57,6 +59,8 @@
          plugins = [
            "git"
            "docker"
+           "branch"
+           "zsh-ssh"
          ];
        };
 
