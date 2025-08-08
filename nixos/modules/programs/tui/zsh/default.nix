@@ -24,10 +24,10 @@
        enable = true;
        enableCompletion = true;
 
-       # Ensure OMZ uses the writable custom dir in $HOME, not the read-only store
-       initExtraFirst = ''
-          export ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
-       '';
+       # Ensure OMZ uses the writable custom dir in $HOME, not the read-only store ( Solution 1 )
+#       initExtraFirst = ''
+#          export ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
+#       '';
 
        # syntaxHighlighting.enable = true;
        zplug = {
@@ -66,6 +66,18 @@
 
        oh-my-zsh = {
          enable = true;
+           # Declare the custom plugin here so OMZ knows where to find it
+           customPlugins = {
+             zsh-ssh = {
+               src = pkgs.fetchFromGitHub {
+                 owner = "sunlei";
+                 repo = "zsh-ssh";
+                 rev = "master"; # Tip: pin to a commit SHA for reproducibility
+                 sha256 = "sha256-lc3fRcM1IazuDRvlOmPEiHk5ddWalqsiNNKcOj8eUSs=";
+               };
+             };
+           };
+
          plugins = [
            "git"
            "docker"
