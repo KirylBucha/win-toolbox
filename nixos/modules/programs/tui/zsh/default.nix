@@ -20,12 +20,11 @@ in
     recursive = true;
   };
 
-   # Append to the end of the generated .zshrc
-    initExtra = prependZshCustom;
-
      programs.zsh = {
        enable = true;
        enableCompletion = true;
+       # Append to the end of the generated .zshrc
+       initExtra = prependZshCustom;
        # syntaxHighlighting.enable = true;
        zplug = {
          enable = true;
