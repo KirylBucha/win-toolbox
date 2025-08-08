@@ -3,15 +3,15 @@
   pkgs,
   ...
 }:
-#let
-#  # Define our custom plugin sources using fetchFromGitHub
-#  zsh-ssh = pkgs.fetchFromGitHub {
-#    owner = "sunlei";
-#    repo = "zsh-ssh";
-#    rev = "master"; # Using a version tag, adjust if needed
-#    sha256 = "sha256-0RnRZhgBcZCjLXeGqKBkZmKQAZl3O7LiMgKqvgT8zGE="; # Replace with the correct hash
-#  };
-#in
+let
+  # Define our custom plugin sources using fetchFromGitHub
+  zsh-ssh = pkgs.fetchFromGitHub {
+    owner = "sunlei";
+    repo = "zsh-ssh";
+    rev = "master"; # Using a version tag, adjust if needed
+    sha256 = "sha256-0RnRZhgBcZCjLXeGqKBkZmKQAZl3O7LiMgKqvgT8zGE="; # Replace with the correct hash
+  };
+in
 {
      programs.zsh = {
        enable = true;
@@ -41,9 +41,6 @@
            # Better history search
            {name = "zsh-users/zsh-history-substring-search";}
 
-           # Better host completion for ssh in Zsh.
-           {name = "sunlei/zsh-ssh";}
-
            # Auto-pairing of quotes, brackets, etc.
            {name = "hlissner/zsh-autopair";}
            # Directory listings with colors
@@ -60,7 +57,6 @@
            "git"
            "docker"
            "branch"
-           "zsh-ssh"
          ];
        };
 
