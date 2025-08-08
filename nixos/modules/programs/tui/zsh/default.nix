@@ -30,7 +30,7 @@ in
            # { name = "jeffreytse/zsh-vi-mode"; }
 
            # Suggests commands as you type based on history and completions
-           {name = "zsh-users/zsh-autosuggestions";}
+#           {name = "zsh-users/zsh-autosuggestions";}
 
            # Reminds you to use commands you've forgotten
            {name = "MichaelAquilina/zsh-you-should-use";}
@@ -57,6 +57,7 @@ in
            "git"
            "docker"
            "branch"
+           { name = "zsh-ssh"; src = zsh-ssh; }
          ];
        };
 
