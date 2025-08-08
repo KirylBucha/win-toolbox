@@ -3,11 +3,6 @@
   pkgs,
   ...
 }:
-#let
-#  prependZshCustom = ''
-#    export ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
-#  '';
-#in
 {
       # Manual download of zsh-ssh plugin to oh-my-zsh custom directory
       home.file.".oh-my-zsh/custom/plugins/zsh-ssh" = {
@@ -25,9 +20,9 @@
        enableCompletion = true;
 
        # Ensure OMZ uses the writable custom dir in $HOME, not the read-only store ( Solution 1 )
-#       initExtraFirst = ''
-#          export ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
-#       '';
+       initExtraFirst = ''
+          export ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
+       '';
 
        # syntaxHighlighting.enable = true;
        zplug = {
@@ -43,7 +38,7 @@
            # { name = "jeffreytse/zsh-vi-mode"; }
 
            # Suggests commands as you type based on history and completions
-#           {name = "zsh-users/zsh-autosuggestions";}
+           {name = "zsh-users/zsh-autosuggestions";}
 
            # Reminds you to use commands you've forgotten
            {name = "MichaelAquilina/zsh-you-should-use";}
@@ -66,18 +61,6 @@
 
        oh-my-zsh = {
          enable = true;
-           # Declare the custom plugin here so OMZ knows where to find it
-           customPlugins = {
-             zsh-ssh = {
-               src = pkgs.fetchFromGitHub {
-                 owner = "sunlei";
-                 repo = "zsh-ssh";
-                 rev = "master"; # Tip: pin to a commit SHA for reproducibility
-                 sha256 = "sha256-lc3fRcM1IazuDRvlOmPEiHk5ddWalqsiNNKcOj8eUSs=";
-               };
-             };
-           };
-
          plugins = [
            "git"
            "docker"
