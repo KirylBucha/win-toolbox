@@ -25,6 +25,19 @@
        initContent = lib.mkBefore ''
                                     export ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
                                   '';
+
+       interactiveShellInit = ''
+          if command -v tmux >/dev/null 2>&1; then
+            case $- in
+              *i*)
+                if [ -z "$TMUX" ]; then
+                  tmux attach -t default 2>/dev/null || tmux new -s default
+                fi
+              ;;
+            esac
+          fi
+        '';
+
        # syntaxHighlighting.enable = true;
        zplug = {
          enable = true;
