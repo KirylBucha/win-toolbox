@@ -57,8 +57,13 @@ in
            "git"
            "docker"
            "branch"
-           { name = "zsh-ssh"; src = zsh-ssh; }
          ];
+         custom = {
+           zsh-ssh = {
+             name = "zsh-ssh";
+             src = zsh-ssh;
+           };
+         };
        };
 
     shellAliases = {

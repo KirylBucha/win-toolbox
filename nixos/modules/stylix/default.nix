@@ -3,7 +3,7 @@
   fontSize = 11;
 in {
   stylix = {
-    enable = true;
+    enable = false;
     image = ./a-house-in-the-snow.png;
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
