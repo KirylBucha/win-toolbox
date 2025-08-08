@@ -26,7 +26,7 @@
                                     export ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
                                   '';
 
-       interactiveShellInit = ''
+       initExtra = ''
           if command -v tmux >/dev/null 2>&1; then
             case $- in
               *i*)
