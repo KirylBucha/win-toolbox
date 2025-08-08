@@ -4,15 +4,25 @@
   ...
 }:
 let
-  # Define our custom plugin sources using fetchFromGitHub
-  zsh-ssh = pkgs.fetchFromGitHub {
-    owner = "sunlei";
-    repo = "zsh-ssh";
-    rev = "master"; # Using a version tag, adjust if needed
-    sha256 = "sha256-0RnRZhgBcZCjLXeGqKBkZmKQAZl3O7LiMgKqvgT8zGE="; # Replace with the correct hash
-  };
+  prependZshCustom = ''
+    export ZSH_CUSTOM="${config.home.homeDirectory}/.oh-my-zsh/custom"
+  '';
 in
 {
+  # Manual download of zsh-ssh plugin to oh-my-zsh custom directory
+  home.file.".oh-my-zsh/custom/plugins/zsh-ssh" = {
+    source = pkgs.fetchFromGitHub {
+      owner = "sunlei";
+      repo = "zsh-ssh";
+      rev = "master";
+      sha256 = "sha256-0RnRZhgBcZCjLXeGqKBkZmKQAZl3O7LiMgKqvgT8zGE=";
+    };
+    recursive = true;
+  };
+
+   # Append to the end of the generated .zshrc
+    initExtra = prependZshCustom;
+
      programs.zsh = {
        enable = true;
        enableCompletion = true;
@@ -57,13 +67,8 @@ in
            "git"
            "docker"
            "branch"
+           "zsh-ssh"
          ];
-         custom = {
-           zsh-ssh = {
-             name = "zsh-ssh";
-             src = zsh-ssh;
-           };
-         };
        };
 
     shellAliases = {
