@@ -4,5 +4,6 @@
     ./zsh
     ./kubernetes
     ./zoxide
+    ./tmux
   ];
 }
