@@ -9,7 +9,7 @@ let
     owner = "KirylBucha";
     repo = ".tmux";
     rev = "stable";
-    sha256 = lib.fakeSha256; # Will be updated with actual hash on first build
+    sha256 = "sha256-4Mvq3bJMnnUBclj7Ld6mPRsgzqdm9gubFMKTXcDIvu0=";
   };
 in
 {

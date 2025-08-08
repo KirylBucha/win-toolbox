@@ -20,10 +20,10 @@
        enableCompletion = true;
 
        # Ensure OMZ uses the writable custom dir in $HOME, not the read-only store ( Solution 1 )
-       initExtraFirst = ''
-          export ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
-       '';
-
+       #  deprecated: initExtraFirst = ''
+       initContent = lib.mkBefore ''
+                                    export ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
+                                  '';
        # syntaxHighlighting.enable = true;
        zplug = {
          enable = true;
