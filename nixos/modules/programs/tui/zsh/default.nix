@@ -15,7 +15,7 @@ in
       owner = "sunlei";
       repo = "zsh-ssh";
       rev = "master";
-      sha256 = "sha256-0RnRZhgBcZCjLXeGqKBkZmKQAZl3O7LiMgKqvgT8zGE=";
+      sha256 = "sha256-lc3fRcM1IazuDRvlOmPEiHk5ddWalqsiNNKcOj8eUSs=";
     };
     recursive = true;
   };
