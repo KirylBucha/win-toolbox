@@ -5,7 +5,7 @@
 }:
 let
   prependZshCustom = ''
-    export ZSH_CUSTOM="${config.home.homeDirectory}/.oh-my-zsh/custom"
+    export ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
   '';
 in
 {
