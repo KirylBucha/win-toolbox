@@ -1,4 +1,4 @@
-# How to setup NixOS on WSL 2
+# Setup NixOS on WSL 2
 
 ## Overview
 

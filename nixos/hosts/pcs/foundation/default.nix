@@ -49,14 +49,15 @@
     };
   };
 
-  # Configure home-manager for WSL
-  home-manager = {
-    extraSpecialArgs = {
-      inherit inputs outputs vars;
-    };
-    users.${vars.user.name} = {pkgs, ...}: {
-      imports = [../../../modules/home];
-    };
-  };
+# Disable because same logic contains in modules/common
+#  # Configure home-manager for WSL
+#  home-manager = {
+#    extraSpecialArgs = {
+#      inherit inputs outputs vars;
+#    };
+#    users.${vars.user.name} = {pkgs, ...}: {
+#      imports = [../../../modules/home];
+#    };
+#  };
 
 }

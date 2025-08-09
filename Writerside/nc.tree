@@ -8,5 +8,6 @@
 
     <toc-element toc-title="NixOS - WSL 2">
         <toc-element topic="00-How-to-Setup-NixOS.md"/>
+        <toc-element topic="01-Setup-NixOS-on-MacOS.md"/>
     </toc-element>
 </instance-profile>

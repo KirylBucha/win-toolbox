@@ -29,7 +29,6 @@
 
   nixpkgs = {
     overlays = [
-#      inputs.nur.overlays.default
       inputs.nix-vscode-extensions.overlays.default
     ];
     config = {
@@ -69,28 +68,28 @@
     virt-manager.enable = false;
   };
 
-  services = {
-    xserver.enable = true;
-    displayManager.sddm.enable = true;
-    desktopManager.plasma6.enable = true;
+#  services = {
+#    xserver.enable = true;
+#    displayManager.sddm.enable = true;
+#    desktopManager.plasma6.enable = true;
+#
+#    xserver.xkb = {
+#      layout = "us";
+#      variant = "";
+#    };
+#
+#    pipewire = {
+#      enable = true;
+#      alsa.enable = true;
+#      alsa.support32Bit = true;
+#      pulse.enable = true;
+#    };
+#  };
 
-    xserver.xkb = {
-      layout = "us";
-      variant = "";
-    };
-
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-    };
-  };
-
-  security.rtkit.enable = true;
+#  security.rtkit.enable = true;
 
   users.users.${vars.user.name} = {
-    initialPassword = "password";
+#    initialPassword = "password";
     isNormalUser = true;
     description = "${vars.user.fullName}";
     extraGroups = ["networkmanager" "wheel" "input" "docker"];
@@ -106,7 +105,7 @@
       fzf
       file
       git
-      htop
+      btop
       jq
       neovim
       vimPlugins.vim-plug
@@ -120,10 +119,6 @@
       gnumake
       kubectl
     ];
-
-    sessionVariables = {
-      EDITOR = "nvim";
-    };
   };
 
   system.stateVersion = "24.05";
