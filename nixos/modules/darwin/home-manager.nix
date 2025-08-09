@@ -40,15 +40,6 @@ in
     users.${user} = import ../../modules/home;
   };
 
-  # --------------------------------------------------------------------
-  # Configure Terminal.app Font
-  # --------------------------------------------------------------------
-  programs.terminal = {
-    enable = true; # This is required to manage Terminal.app settings
-    # --- FONT SETTINGS ---
-    fontSize = 14;
-  };
-
   # Initialized Home Brew
   homebrew = {
     enable = true;
