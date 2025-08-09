@@ -10,15 +10,15 @@
 # Optional: give a name to the whole argument set
 {
   imports = [
-    inputs.home-manager.nixosModules.home-manager
+#    inputs.home-manager.nixosModules.home-manager
   ];
 
-  home-manager = {
-    extraSpecialArgs = {
-      inherit inputs outputs vars;
-    };
-    users.${vars.user.name} = import ../../modules/home;
-  };
+#  home-manager = {
+#    extraSpecialArgs = {
+#      inherit inputs outputs vars;
+#    };
+#    users.${vars.user.name} = import ../../modules/home;
+#  };
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
