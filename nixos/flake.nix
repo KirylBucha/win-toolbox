@@ -71,7 +71,7 @@
       home-manager = {
         useUserPackages = true;
         backupFileExtension = "backup";
-        users.${vars.user.name} = {};
+        users.${vars.user.name} = import ./modules/home;
       };
     };
   in {

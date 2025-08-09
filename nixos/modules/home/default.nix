@@ -22,9 +22,6 @@ in {
     };
   };
 
-  nixpkgs.overlays = [
-    inputs.nix-vscode-extensions.overlays.default
-  ];
 
   # User packages. IE not system packages
   home = {
