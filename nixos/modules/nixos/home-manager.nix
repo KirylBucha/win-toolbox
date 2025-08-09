@@ -45,5 +45,13 @@ in
     virt-manager.enable = false;
   };
 
+  # --------------------------------------------------------------------
+  # Configure Terminal.app Font
+  # --------------------------------------------------------------------
+  programs.terminal = {
+    enable = true; # This is required to manage Terminal.app settings
+    # --- FONT SETTINGS ---
+    fontSize = 14;
+  };
 
 }

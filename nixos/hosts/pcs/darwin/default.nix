@@ -42,7 +42,7 @@ in
 
     defaults = {
       NSGlobalDomain = {
-#        AppleShowAllExtensions = true;
+       AppleShowAllExtensions = true;
 #        ApplePressAndHoldEnabled = false;
         KeyRepeat = 2; # Values: 120, 90, 60, 30, 12, 6, 2
         InitialKeyRepeat = 15; # Values: 120, 94, 68, 35, 25, 15
@@ -59,22 +59,6 @@ in
         orientation = "bottom";
 #        tilesize = 48;
       };
-
-      # TBD not working Increase font size for the standard macOS Terminal.app profile
-#      CustomUserDefaults = {
-#        "com.apple.Terminal" = {
-#          # Use the built-in "Pro" profile for both default and startup windows
-#          "Default Window Settings" = "Pro";
-#          "Startup Window Settings" = "Pro";
-#          # Override settings for the "Pro" profile
-#          "Window Settings" = {
-#            Pro = {
-#              # Increase the font size; keep other settings intact
-#              "FontSize" = 14.0;
-#            };
-#          };
-#        };
-#      };
 
       trackpad = {
         Clicking = true;
