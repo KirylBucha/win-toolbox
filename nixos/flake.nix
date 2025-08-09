@@ -16,9 +16,26 @@
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     flake-utils.url = "github:numtide/flake-utils";
 
-    # nix-darwin for macOS support (Keep input if you might use it later, even if no configs defined now)
-    darwin.url = "github:LnL7/nix-darwin";
-    darwin.inputs.nixpkgs.follows = "nixpkgs";
+    # nix-darwin for macOS support
+    darwin = {
+        url = "github:LnL7/nix-darwin/master";
+        inputs.nixpkgs.follows = "nixpkgs";
+      };
+      nix-homebrew = {
+        url = "github:zhaofengli-wip/nix-homebrew";
+      };
+      homebrew-bundle = {
+        url = "github:homebrew/homebrew-bundle";
+        flake = false;
+      };
+      homebrew-core = {
+        url = "github:homebrew/homebrew-core";
+        flake = false;
+      };
+      homebrew-cask = {
+        url = "github:homebrew/homebrew-cask";
+        flake = false;
+      };
   };
 
   outputs = inputs @ {
@@ -32,6 +49,10 @@
     ...
   }: let
     lib = nixpkgs.lib // home-manager.lib;
+    linuxSystems = [ "x86_64-linux" "aarch64-linux" ];
+    darwinSystems = [ "aarch64-darwin" "x86_64-darwin" ];
+    forAllSystems = f: nixpkgs.lib.genAttrs (linuxSystems ++ darwinSystems) f;
+
     # Support all major systems (Linux and Darwin)
     allSystems = import systems;
     forEachSystem = f: lib.genAttrs allSystems (system: f pkgsFor.${system});
