@@ -70,26 +70,37 @@
           mkHomeManagerModule
         ];
       };
-
-      #   2-st Config
-      darwin = nixpkgs.lib.nixosSystem {
-        system = "aarch64-darwin";
-        specialArgs = {
-          inherit inputs vars;
-          outputs = self;
-        };
-        modules = [
-          nixos-wsl.nixosModules.default
-          ./hosts/pcs/darwin
-          home-manager.nixosModules.home-manager
-          mkHomeManagerModule
-        ];
-      };
-
     };
 
-    # The 'darwinConfigurations' block has been removed entirely because
-    # there are no active macOS configurations.
-    # The 'darwin' input is kept in 'inputs' section in case it's used later.
+    darwinConfigurations = nixpkgs.lib.genAttrs darwinSystems (system: let
+      user = "${vars.user.name}";
+    in
+      darwin.lib.darwinSystem {
+        inherit system;
+        specialArgs = {
+                inherit inputs vars;
+                outputs = self;
+        };
+        modules = [
+          home-manager.darwinModules.home-manager
+          nix-homebrew.darwinModules.nix-homebrew
+          {
+            nix-homebrew = {
+              inherit user;
+              enable = true;
+              taps = {
+                "homebrew/homebrew-core" = homebrew-core;
+                "homebrew/homebrew-cask" = homebrew-cask;
+                "homebrew/homebrew-bundle" = homebrew-bundle;
+              };
+              mutableTaps = false;
+              autoMigrate = true;
+            };
+          }
+          ./hosts/pcs/darwin
+        ];
+      }
+    );
+
   };
 }
