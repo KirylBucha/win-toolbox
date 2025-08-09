@@ -43,6 +43,9 @@ in
   # Initialized Home Brew
   homebrew = {
     enable = true;
+    brews = [
+      "mas"
+    ];
     casks = pkgs.callPackage ./casks.nix {};
     # onActivation.cleanup = "uninstall";
 
@@ -59,6 +62,8 @@ in
     masApps = {
       # "wireguard" = 1451685025;
     };
+    onActivation.autoUpdate = true;
+    onActivation.upgrade = true;
   };
 
   # Recreate links to work in Spotlight Search
