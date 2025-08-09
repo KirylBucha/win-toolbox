@@ -94,14 +94,16 @@
       };
     };
 
-    darwinConfigurations = nixpkgs.lib.genAttrs darwinSystems (system: let
-      user = "${vars.user.name}";
-    in
-      darwin.lib.darwinSystem {
-        inherit system;
+    darwinConfigurations = {
+      # Expose a hostname-keyed configuration so users can run: darwin-rebuild switch --flake .#darwin
+      darwin = let
+        user = "${vars.user.name}";
+      in darwin.lib.darwinSystem {
+        # Default to Apple Silicon; adjust if you need x86_64-darwin
+        system = "aarch64-darwin";
         specialArgs = {
-                inherit inputs vars;
-                outputs = self;
+          inherit inputs vars;
+          outputs = self;
         };
         modules = [
           home-manager.darwinModules.home-manager
@@ -121,8 +123,8 @@
           }
           ./hosts/pcs/darwin
         ];
-      }
-    );
+      };
+    };
 
   };
 }
