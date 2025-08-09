@@ -4,13 +4,22 @@
      inputs.home-manager.darwinModules.home-manager
   ];
 
+  # It me
+  user = "${vars.user.name}";
+  users.users.${user} = {
+    name = "${user}";
+    home = "/Users/${user}";
+    isHidden = false;
+    shell = pkgs.zsh;
+  };
+
   home-manager = {
     useGlobalPkgs = true;
     # Make inputs and vars available to the imported home module
     extraSpecialArgs = {
       inherit inputs outputs vars;
     };
-    users.${vars.user.name} = import ../../modules/home;
+    users.${user} = import ../../modules/home;
   };
 
   homebrew = {

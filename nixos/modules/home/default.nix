@@ -18,26 +18,24 @@
     };
   };
 
-  home = {
-    stateVersion = "25.05";
-  };
 
-#  home = {
-#    enableNixpkgsReleaseCheck = false;
-##    packages = pkgs.callPackage ./packages.nix {};
-#    packages =with pkgs;
-#          [
-#            # fonts
-#            nerd-fonts.jetbrains-mono
-#            jetbrains-mono
-#          ];
-#    # Explicitly set username and homeDirectory so Home Manager works on both NixOS and Darwin
-#    username = vars.user.name;
-#    homeDirectory = if pkgs.stdenv.hostPlatform.isDarwin
-#      then "/Users/${vars.user.name}"
-#      else "/home/${vars.user.name}";
-#    stateVersion = "23.11";
-#  };
+
+  home = {
+    enableNixpkgsReleaseCheck = false;
+#    packages = pkgs.callPackage ./packages.nix {};
+    packages =with pkgs;
+          [
+            # fonts
+            nerd-fonts.jetbrains-mono
+            jetbrains-mono
+          ];
+    # Explicitly set username and homeDirectory so Home Manager works on both NixOS and Darwin
+    username = "${vars.user.name}";
+    homeDirectory = if pkgs.stdenv.hostPlatform.isDarwin
+      then "/Users/${vars.user.name}"
+      else "/home/${vars.user.name}";
+    stateVersion = "24.05";
+  };
 
 
   # Marked broken Oct 20, 2022 check later to remove this
