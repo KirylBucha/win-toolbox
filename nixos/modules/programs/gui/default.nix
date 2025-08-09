@@ -9,7 +9,7 @@
         normal = { family = "JetBrainsMono Nerd Font"; style = "Regular"; };
         bold = { family = "JetBrainsMono Nerd Font"; style = "Bold"; };
         italic = { family = "JetBrainsMono Nerd Font"; style = "Italic"; };
-        size = 14.0; # Increased terminal font size
+        size = 16.0; # Increased terminal font size
       };
     };
   };
