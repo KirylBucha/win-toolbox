@@ -28,7 +28,7 @@ Output:
 
 Check by [link](https://status.nixos.org/) the stable version of NixOS.
 
-```nix
+```text
 nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
 home-manager = {
   url = "github:nix-community/home-manager/release-24.11";
