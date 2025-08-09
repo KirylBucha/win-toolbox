@@ -13,11 +13,6 @@
     inputs.home-manager.nixosModules.home-manager
   ];
 
-  system.autoUpgrade = {
-    enable = true;
-    allowReboot = true;
-  };
-
   home-manager = {
     extraSpecialArgs = {
       inherit inputs outputs vars;

@@ -16,6 +16,26 @@
 
   time.timeZone = vars.system.timeZone;
 
+
+  # Ensure both users exist during transition
+  users.users = {
+#    nixos = {
+#      isNormalUser = true;
+#      extraGroups = ["wheel" "networkmanager"];
+#      # Keep nixos user temporarily
+#    };
+    ${vars.user.name} = {
+      isNormalUser = true;
+      extraGroups = ["wheel" "networkmanager" "docker"];
+      initialPassword = "password";
+      ignoreShellProgramCheck = true;
+      shell = pkgs.${vars.user.packages.shell};
+    };
+  };
+
+
+## Services was defined in Common - removed due to use of DarwinSystem
+## Need to Refactor for independent call of Linux Common
   i18n = {
     defaultLocale = vars.system.locale;
     extraLocaleSettings = {
@@ -44,22 +64,10 @@
     virt-manager.enable = false;
   };
 
-  # Ensure both users exist during transition
-  users.users = {
-#    nixos = {
-#      isNormalUser = true;
-#      extraGroups = ["wheel" "networkmanager"];
-#      # Keep nixos user temporarily
-#    };
-    ${vars.user.name} = {
-      isNormalUser = true;
-      extraGroups = ["wheel" "networkmanager" "docker"];
-      initialPassword = "password";
-      ignoreShellProgramCheck = true;
-      shell = pkgs.${vars.user.packages.shell};
-    };
+  system.autoUpgrade = {
+    enable = true;
+    allowReboot = true;
   };
-
 
 #  services = {
 #    xserver.enable = true;
@@ -81,6 +89,8 @@
 
 #  security.rtkit.enable = true;
 
+
+  ### WSL-2 Specific Configs
   # Override common settings that don't work well in WSL
   services = {
     xserver.enable = lib.mkForce false;
@@ -88,7 +98,6 @@
     desktopManager.plasma6.enable = lib.mkForce false;
     pipewire.enable = lib.mkForce false;
   };
-
   # Disable unnecessary services for WSL
   security.rtkit.enable = lib.mkOverride 900 false;
 
