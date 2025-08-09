@@ -10,17 +10,7 @@
 # Optional: give a name to the whole argument set
 {
   imports = [
-#    inputs.home-manager.nixosModules.home-manager
   ];
-
-# TODO need to move to NixOS files
-#  home-manager = {
-#    extraSpecialArgs = {
-#      inherit inputs outputs vars;
-#    };
-#    users.${vars.user.name} = import ../../modules/home;
-#  };
-#  system.stateVersion = "24.05";
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 

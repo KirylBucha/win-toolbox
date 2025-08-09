@@ -20,7 +20,6 @@
   system = {
     timeZone = "Europe/London";
     locale = "en_US.UTF-8";
-    stateVersion = "24.05";
   };
 
   networking = {
