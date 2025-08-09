@@ -7,8 +7,15 @@ in
      inputs.home-manager.darwinModules.home-manager
   ];
 
+  # Darwin users configuration
+  users = {
+    # Ensure these users are known to nix-darwin (pre-existing or managed accounts)
+    knownUsers = [ "${user}"];
+  };
+
   # Register User
   users.users.${user} = {
+    uid = 501;
     name = "${user}";
     home = "/Users/${user}";
     isHidden = false;
