@@ -60,21 +60,21 @@ in
 #        tilesize = 48;
       };
 
-      # Increase font size for the standard macOS Terminal.app profile
-      CustomUserDefaults = {
-        "com.apple.Terminal" = {
-          # Use the built-in "Pro" profile for both default and startup windows
-          "Default Window Settings" = "Pro";
-          "Startup Window Settings" = "Pro";
-          # Override settings for the "Pro" profile
-          "Window Settings" = {
-            Pro = {
-              # Increase the font size; keep other settings intact
-              "FontSize" = 14.0;
-            };
-          };
-        };
-      };
+      # TBD not working Increase font size for the standard macOS Terminal.app profile
+#      CustomUserDefaults = {
+#        "com.apple.Terminal" = {
+#          # Use the built-in "Pro" profile for both default and startup windows
+#          "Default Window Settings" = "Pro";
+#          "Startup Window Settings" = "Pro";
+#          # Override settings for the "Pro" profile
+#          "Window Settings" = {
+#            Pro = {
+#              # Increase the font size; keep other settings intact
+#              "FontSize" = 14.0;
+#            };
+#          };
+#        };
+#      };
 
       trackpad = {
         Clicking = true;
