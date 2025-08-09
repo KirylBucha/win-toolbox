@@ -1,6 +1,12 @@
 { config, pkgs, lib, inputs, outputs, vars, ... }:
 let
   user = "${vars.user.name}";
+
+  env = pkgs.buildEnv {
+          name = "system-applications";
+          paths = config.environment.systemPackages;
+          pathsToLink = "/Applications";
+  };
 in
 {
   imports = [
@@ -54,4 +60,18 @@ in
       # "wireguard" = 1451685025;
     };
   };
+
+  # Recreate links to work in Spotlight Search
+  system.activationScripts.applications.text = pkgs.lib.mkForce ''
+          echo "setting up /Applications..." >&2
+          rm -rf /Applications/Nix\ Apps
+          mkdir -p /Applications/Nix\ Apps
+          find ${env}/Applications -maxdepth 1 -type l -exec readlink '{}' + |
+          while read -r src; do
+            app_name=$(basename "$src")
+            echo "copying $src" >&2
+            ${pkgs.mkalias}/bin/mkalias "$src" "/Applications/Nix Apps/$app_name"
+          done
+        '';
+
 }

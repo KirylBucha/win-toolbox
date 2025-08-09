@@ -38,7 +38,7 @@ in
   system = {
     checks.verifyNixPath = false;
     primaryUser = user;
-    stateVersion = 5;
+    stateVersion = 6;
 
     defaults = {
       NSGlobalDomain = {
