@@ -91,10 +91,10 @@
       e = "exit";
       c = "clear";
       cs = "sudo nix-store --gc";
-      ll = "ls -l";
+      ll = "ls -la";
       cat = "bat";
       nxup = "cd ~/win-toolbox/nixos && git pull && sudo nixos-rebuild switch --flake .#foundation";
-      dwup = "cd ~/win-toolbox/nixos && git pull && sudo darwin-rebuild switch --flake .#darwin";
+      dwup = "cd ~/Work/win-toolbox/nixos && git pull && sudo darwin-rebuild switch --flake .#darwin";
       gitCommitUndo = "git reset --soft HEAD\\^";
       # nix garbage collect
       ncg = "nix-collect-garbage --delete-older-than 3d && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
