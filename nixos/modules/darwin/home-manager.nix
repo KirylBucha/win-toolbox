@@ -8,8 +8,7 @@
     extraSpecialArgs = {
       inherit inputs outputs vars;
     };
-
-    users.${vars.user.name} = import ../home;
+    users.${vars.user.name} = import ../../modules/home;
   };
 
   homebrew = {
