@@ -24,6 +24,18 @@ Output:
 
 ![WSL2-NIXOS-Welcome-Screen.png](WSL2-NIXOS-Welcome-Screen.png)
 
+### Check the version of NixOS
+
+Check by [link](https://status.nixos.org/) the stable version of NixOS.
+
+```nix
+nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+home-manager = {
+  url = "github:nix-community/home-manager/release-24.11";
+  inputs.nixpkgs.follows = "nixpkgs";
+};
+```
+
 ### Update and Rebuild
 ```Bash
 sudo nix-channel --update 

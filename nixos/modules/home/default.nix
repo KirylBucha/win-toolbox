@@ -17,7 +17,7 @@
   };
 
   nixpkgs.overlays = [
-    inputs.nur.overlays.default
+#    inputs.nur.overlays.default
     inputs.nix-vscode-extensions.overlays.default
   ];
 
