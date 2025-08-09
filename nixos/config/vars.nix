@@ -1,6 +1,6 @@
 {lib, ...}: rec {
   user = {
-    name = "kbucha";
+    name = "kirylbucha";
     fullName = "Kiryl Bucha";
     email = "kbucha@datamola.com";
     packages = {

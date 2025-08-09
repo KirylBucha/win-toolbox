@@ -71,6 +71,21 @@
         ];
       };
 
+      #   2-st Config
+      darwin = nixpkgs.lib.nixosSystem {
+        system = "aarch64-darwin";
+        specialArgs = {
+          inherit inputs vars;
+          outputs = self;
+        };
+        modules = [
+          nixos-wsl.nixosModules.default
+          ./hosts/pcs/darwin
+          home-manager.nixosModules.home-manager
+          mkHomeManagerModule
+        ];
+      };
+
     };
 
     # The 'darwinConfigurations' block has been removed entirely because
