@@ -1,11 +1,13 @@
 { config, pkgs, lib, inputs, outputs, vars, ... }:
+let
+  user = "${vars.user.name}";
+in
 {
   imports = [
      inputs.home-manager.darwinModules.home-manager
   ];
 
   # Register User
-  user = "${vars.user.name}";
   users.users.${user} = {
     name = "${user}";
     home = "/Users/${user}";
