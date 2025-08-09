@@ -95,5 +95,11 @@ In case of errors, try to restart WSL:
    wsl -t NixOS
 ```
 
+### Remove NixOS
+```Bash
+wsl --unregister NixOS
+wsl --list
+```
+
 ## Copy SSH Configs
 TBD
