@@ -45,7 +45,8 @@
     nixos-wsl,
     nixos-hardware,
     home-manager,
-    darwin, # Keep this input if you anticipate defining macOS configs later
+    # MacOS inputs
+    darwin, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask,
     ...
   }: let
     lib = nixpkgs.lib // home-manager.lib;
