@@ -1,7 +1,7 @@
 { config, pkgs, lib, inputs, outputs, vars, ... }:
 {
   imports = [
-     home-manager.darwinModules.home-manager
+     inputs.home-manager.darwinModules.home-manager
   ];
 
   home-manager = {
