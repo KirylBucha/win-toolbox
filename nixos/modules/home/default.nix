@@ -1,6 +1,8 @@
 {
   inputs,
   vars,
+  config,
+  lib,
   pkgs,
   ...
 }: {
@@ -17,29 +19,47 @@
   };
 
 
-  # User packages. IE not system packages
   home = {
-#    username = "${vars.user.name}";
-#    homeDirectory = "/Users/${vars.user.name}";
-    packages = with pkgs;
-      [
-        # fonts
-        nerd-fonts.jetbrains-mono
-        jetbrains-mono
-      ]
-      ++ (
-        if pkgs.stdenv.hostPlatform.system != "aarch64-linux"
-        then [
-          # ARM does not support every package, so only install these if we're not on an ARM basd architecture
-#          bitwarden
-        ]
-        else []
-      );
+    enableNixpkgsReleaseCheck = false;
+#    packages = pkgs.callPackage ./packages.nix {};
+    packages =with pkgs;
+          [
+            # fonts
+            nerd-fonts.jetbrains-mono
+            jetbrains-mono
+          ];
+    stateVersion = "23.11";
   };
 
-  services.mako.enable = false;
+
+  # Marked broken Oct 20, 2022 check later to remove this
+  # https://github.com/nix-community/home-manager/issues/3344
+  manual.manpages.enable = false;
+
+
+#  # User packages. IE not system packages
+#  home = {
+##    username = "${vars.user.name}";
+##    homeDirectory = "/Users/${vars.user.name}";
+#    packages = with pkgs;
+#      [
+#        # fonts
+#        nerd-fonts.jetbrains-mono
+#        jetbrains-mono
+#      ]
+#      ++ (
+#        if pkgs.stdenv.hostPlatform.system != "aarch64-linux"
+#        then [
+#          # ARM does not support every package, so only install these if we're not on an ARM basd architecture
+##          bitwarden
+#        ]
+#        else []
+#      );
+#      # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+#      stateVersion = "24.05";
+#  };
+
   programs.home-manager.enable = true;
 
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "24.05";
+
 }

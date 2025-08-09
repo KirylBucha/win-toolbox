@@ -4,6 +4,7 @@
   ];
 
   home-manager = {
+    useGlobalPkgs = true;
     # Make inputs and vars available to the imported home module
     extraSpecialArgs = {
       inherit inputs outputs vars;
