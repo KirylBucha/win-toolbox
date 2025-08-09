@@ -12,6 +12,37 @@
   ];
 
   networking.hostName = "kb-nixos-vs";
+  networking.networkmanager.enable = true;
+
+  time.timeZone = vars.system.timeZone;
+
+  i18n = {
+    defaultLocale = vars.system.locale;
+    extraLocaleSettings = {
+      LC_ADDRESS = vars.system.locale;
+      LC_IDENTIFICATION = "en_US.UTF-8";
+      LC_MEASUREMENT = "en_US.UTF-8";
+      LC_MONETARY = "en_US.UTF-8";
+      LC_NAME = "en_US.UTF-8";
+      LC_NUMERIC = "en_US.UTF-8";
+      LC_PAPER = "en_US.UTF-8";
+      LC_TELEPHONE = "en_US.UTF-8";
+      LC_TIME = "en_US.UTF-8";
+    };
+  };
+
+  programs.nix-ld.enable = true;
+
+  # Docker-Compose
+  virtualisation = {
+    libvirtd.enable = false;
+    docker.enable = true;
+    podman.enable = false;
+  };
+
+  programs = {
+    virt-manager.enable = false;
+  };
 
   # Ensure both users exist during transition
   users.users = {
@@ -24,8 +55,31 @@
       isNormalUser = true;
       extraGroups = ["wheel" "networkmanager" "docker"];
       initialPassword = "password";
+      ignoreShellProgramCheck = true;
+      shell = pkgs.${vars.user.packages.shell};
     };
   };
+
+
+#  services = {
+#    xserver.enable = true;
+#    displayManager.sddm.enable = true;
+#    desktopManager.plasma6.enable = true;
+#
+#    xserver.xkb = {
+#      layout = "us";
+#      variant = "";
+#    };
+#
+#    pipewire = {
+#      enable = true;
+#      alsa.enable = true;
+#      alsa.support32Bit = true;
+#      pulse.enable = true;
+#    };
+#  };
+
+#  security.rtkit.enable = true;
 
   # Override common settings that don't work well in WSL
   services = {
@@ -48,16 +102,5 @@
       network.generateResolvConf = true;
     };
   };
-
-# Disable because same logic contains in modules/common
-#  # Configure home-manager for WSL
-#  home-manager = {
-#    extraSpecialArgs = {
-#      inherit inputs outputs vars;
-#    };
-#    users.${vars.user.name} = {pkgs, ...}: {
-#      imports = [../../../modules/home];
-#    };
-#  };
 
 }
