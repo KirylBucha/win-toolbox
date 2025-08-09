@@ -19,7 +19,7 @@
 
   # User packages. IE not system packages
   home = {
-    username = "${vars.user.name}";
+#    username = "${vars.user.name}";
 #    homeDirectory = "/Users/${vars.user.name}";
     packages = with pkgs;
       [
