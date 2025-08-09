@@ -28,6 +28,11 @@
             nerd-fonts.jetbrains-mono
             jetbrains-mono
           ];
+    # Explicitly set username and homeDirectory so Home Manager works on both NixOS and Darwin
+    username = vars.user.name;
+    homeDirectory = if pkgs.stdenv.hostPlatform.isDarwin
+      then "/Users/${vars.user.name}"
+      else "/home/${vars.user.name}";
     stateVersion = "23.11";
   };
 
