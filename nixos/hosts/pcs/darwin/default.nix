@@ -35,16 +35,6 @@ let user = vars.user.name; in
   ] ++ (import ./packages.nix { inherit pkgs; });
 
 
-#  # Configure home-manager for WSL
-#  home-manager = {
-#    extraSpecialArgs = {
-#      inherit inputs outputs vars;
-#    };
-#    users.${vars.user.name} = {pkgs, ...}: {
-#      imports = [../../../modules/home];
-#    };
-#  };
-
   system = {
     checks.verifyNixPath = false;
     primaryUser = user;
