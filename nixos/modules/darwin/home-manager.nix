@@ -4,7 +4,7 @@
      inputs.home-manager.darwinModules.home-manager
   ];
 
-  # It me
+  # Register User
   user = "${vars.user.name}";
   users.users.${user} = {
     name = "${user}";
@@ -13,6 +13,7 @@
     shell = pkgs.zsh;
   };
 
+  # Initialize Home-Manager with Registered User
   home-manager = {
     useGlobalPkgs = true;
     # Make inputs and vars available to the imported home module
@@ -22,6 +23,7 @@
     users.${user} = import ../../modules/home;
   };
 
+  # Initialized Home Brew
   homebrew = {
     enable = true;
     casks = pkgs.callPackage ./casks.nix {};
