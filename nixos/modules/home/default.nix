@@ -3,7 +3,13 @@
   vars,
   pkgs,
   ...
-}: {
+}: let
+  isDarwin = pkgs.stdenv.hostPlatform.isDarwin or false;
+  userName = vars.user.name;
+  darwinHome = "/Users/${userName}";
+  linuxHome = "/home/${userName}";
+  homeDir = if isDarwin then darwinHome else linuxHome;
+in {
   imports = [
     ../programs/tui
     ../programs/gui
@@ -23,7 +29,7 @@
   # User packages. IE not system packages
   home = {
     username = "${vars.user.name}";
-    homeDirectory = "/home/${vars.user.name}";
+    homeDirectory = homeDir;
     packages = with pkgs;
       [
         # fonts

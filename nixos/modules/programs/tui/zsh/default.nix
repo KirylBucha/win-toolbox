@@ -1,4 +1,5 @@
 {
+  config,
   vars,
   pkgs,
   lib,
@@ -97,6 +98,6 @@
       nt = "nix flake test";
     };
     history.size = 10000;
-    history.path = "/home/${vars.user.name}/.zsh_history";
+    history.path = "${config.home.homeDirectory}/.zsh_history";
   };
 }

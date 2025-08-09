@@ -1,7 +1,16 @@
-{ config, pkgs, lib, home-manager, ... }:
+{ config, pkgs, lib, inputs, outputs, vars, ... }:
 {
   imports = [
   ];
+
+  home-manager = {
+    # Make inputs and vars available to the imported home module
+    extraSpecialArgs = {
+      inherit inputs outputs vars;
+    };
+
+    users.${vars.user.name} = import ../home;
+  };
 
   homebrew = {
     enable = true;
