@@ -17,7 +17,9 @@ in
 
   # Initialize Home-Manager with Registered User
   home-manager = {
-    useGlobalPkgs = true;
+#    useGlobalPkgs = true;
+    useUserPackages = true;
+    backupFileExtension = "backup";
     # Make inputs and vars available to the imported home module
     extraSpecialArgs = {
       inherit inputs outputs vars;

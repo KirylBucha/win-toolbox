@@ -1,9 +1,9 @@
 { config,
      pkgs,
      vars, ... }:
-
-let user = vars.user.name; in
-
+let
+  user = vars.user.name;
+in
 {
   imports = [
     ../../../modules/darwin/home-manager.nix
