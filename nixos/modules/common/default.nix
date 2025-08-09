@@ -34,7 +34,6 @@
       btop
       jq
       neovim
-      mkalias
       vimPlugins.vim-plug
       unzip
       wget

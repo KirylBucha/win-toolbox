@@ -5,6 +5,7 @@ with pkgs; [
   # General packages for development and system management
   alacritty
   coreutils
+  mkalias
 #  openssh
 
   # Encryption and security tools
