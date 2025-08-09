@@ -3,19 +3,17 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     # Use the full default set (includes Darwin)
     systems.url = "github:nix-systems/default";
     # Home manager
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    stylix.url = "github:danth/stylix";
-    stylix.inputs.nixpkgs.follows = "nixpkgs";
-    nur.url = "github:nix-community/NUR";
+#    nur.url = "github:nix-community/NUR";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     flake-utils.url = "github:numtide/flake-utils";
 
@@ -31,7 +29,6 @@
     nixos-wsl,
     nixos-hardware,
     home-manager,
-    stylix,
     darwin, # Keep this input if you anticipate defining macOS configs later
     ...
   }: let
@@ -70,7 +67,6 @@
         modules = [
           nixos-wsl.nixosModules.default
           ./hosts/pcs/foundation
-          stylix.nixosModules.stylix
           home-manager.nixosModules.home-manager
           mkHomeManagerModule
         ];

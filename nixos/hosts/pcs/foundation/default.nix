@@ -49,11 +49,6 @@
     };
   };
 
-  # Disable Stylix desktop-related targets
-  stylix = {
-    targets.console.enable = false;
-  };
-
   # Configure home-manager for WSL
   home-manager = {
     extraSpecialArgs = {
