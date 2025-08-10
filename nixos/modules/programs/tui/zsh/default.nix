@@ -74,11 +74,12 @@
 
            # Auto-pairing of quotes, brackets, etc.
            {name = "hlissner/zsh-autopair";}
+          
            # Directory listings with colors
            # { name = "supercrabtree/k"; }
 
            # Visual mode for Zsh
-           { name = "b4b4r07/zsh-vimode-visual"; }
+           # { name = "b4b4r07/zsh-vimode-visual"; }
 
            # fzf-based completion plugin with rich UI (tmux popup supported)
            { name = "Aloxaf/fzf-tab"; }
