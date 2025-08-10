@@ -59,18 +59,18 @@ in
         orientation = "bottom";
 #        tilesize = 48;
       };
-
-      trackpad = {
-        Clicking = true;
-        # Enables three-finger drag for moving windows
-        TrackpadThreeFingerDrag = true;
-
-        # Enables horizontal swipe with three fingers (for desktops/full-screen apps)
-        TrackpadThreeFingerHorizSwipeGesture = 2;
-
-        # Enables vertical swipe with three fingers (for Mission Control / App Exposé)
-        TrackpadThreeFingerVertSwipeGesture = 2;
-      };
+#
+#      trackpad = {
+##        Clicking = true;
+#        # Enables three-finger drag for moving windows
+#        TrackpadThreeFingerDrag = true;
+#
+#        # Enables horizontal swipe with three fingers (for desktops/full-screen apps)
+#        TrackpadThreeFingerHorizSwipeGesture = 2;
+#
+#        # Enables vertical swipe with three fingers (for Mission Control / App Exposé)
+#        TrackpadThreeFingerVertSwipeGesture = 2;
+#      };
     };
   };
 }
