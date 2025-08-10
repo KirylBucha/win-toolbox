@@ -1,5 +1,22 @@
 {
   "nodes": {
+    "brew-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1753461463,
+        "narHash": "sha256-kGc7pRH0diLzKmOHsEFA8sZ9NJpgT+tqxAMsuqNd5Po=",
+        "owner": "Homebrew",
+        "repo": "brew",
+        "rev": "4d14be89e99a45181c18e96a5f19a5b43343cc0f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Homebrew",
+        "ref": "4.5.13",
+        "repo": "brew",
+        "type": "github"
+      }
+    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -16,6 +33,7 @@
       },
       "original": {
         "owner": "LnL7",
+        "ref": "master",
         "repo": "nix-darwin",
         "type": "github"
       }
@@ -79,17 +97,82 @@
         ]
       },
       "locked": {
-        "lastModified": 1753592768,
-        "narHash": "sha256-oV695RvbAE4+R9pcsT9shmp6zE/+IZe6evHWX63f2Qg=",
+        "lastModified": 1754756528,
+        "narHash": "sha256-W1jYKMetZSOHP5m2Z5Wokdj/ct17swPHs+MiY2WT1HQ=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "fc3add429f21450359369af74c2375cb34a2d204",
+        "rev": "3ec1cd9a0703fbd55d865b7fd2b07d08374f0355",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
-        "ref": "release-25.05",
         "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "homebrew-bundle": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1745335228,
+        "narHash": "sha256-TIKR2UgtyUmHLNZp255/vLs+1I10hXe+sciMEbAGFwE=",
+        "owner": "homebrew",
+        "repo": "homebrew-bundle",
+        "rev": "a3265c84b232e13048ecbf6fc18a2eedfadbeb08",
+        "type": "github"
+      },
+      "original": {
+        "owner": "homebrew",
+        "repo": "homebrew-bundle",
+        "type": "github"
+      }
+    },
+    "homebrew-cask": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1754777230,
+        "narHash": "sha256-xW1v4WHpbYIE1JkhflQBCVMq+PP8Oebj+Lw+kf7chiM=",
+        "owner": "homebrew",
+        "repo": "homebrew-cask",
+        "rev": "10ed5240a2cbd5c7dbef2e8624d01dc208601cd8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "homebrew",
+        "repo": "homebrew-cask",
+        "type": "github"
+      }
+    },
+    "homebrew-core": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1754780397,
+        "narHash": "sha256-m1/Iyg7/E/2FU8Mo33OHJ0ZfOdWFaFBIT5qm+p9aWik=",
+        "owner": "homebrew",
+        "repo": "homebrew-core",
+        "rev": "0fa841aedc701b0501f95cd8bbb16da501d44227",
+        "type": "github"
+      },
+      "original": {
+        "owner": "homebrew",
+        "repo": "homebrew-core",
+        "type": "github"
+      }
+    },
+    "nix-homebrew": {
+      "inputs": {
+        "brew-src": "brew-src"
+      },
+      "locked": {
+        "lastModified": 1754250993,
+        "narHash": "sha256-MEin+qoQKtFC1b0f4tnQ+Z82BQWSCgh6Ef7rpmH9gig=",
+        "owner": "zhaofengli-wip",
+        "repo": "nix-homebrew",
+        "rev": "314d057294e79bc2596972126b84c6f9f144499a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zhaofengli-wip",
+        "repo": "nix-homebrew",
         "type": "github"
       }
     },
@@ -182,16 +265,16 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1754689972,
-        "narHash": "sha256-eogqv6FqZXHgqrbZzHnq43GalnRbLTkbBbFtEfm1RSc=",
+        "lastModified": 1754498491,
+        "narHash": "sha256-erbiH2agUTD0Z30xcVSFcDHzkRvkRXOQ3lb887bcVrs=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "fc756aa6f5d3e2e5666efcf865d190701fef150a",
+        "rev": "c2ae88e026f9525daf89587f3cbee584b92b6134",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "nixos-25.05",
+        "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -201,6 +284,10 @@
         "darwin": "darwin",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
+        "homebrew-bundle": "homebrew-bundle",
+        "homebrew-cask": "homebrew-cask",
+        "homebrew-core": "homebrew-core",
+        "nix-homebrew": "nix-homebrew",
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixos-hardware": "nixos-hardware",
         "nixos-wsl": "nixos-wsl",

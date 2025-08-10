@@ -51,9 +51,7 @@ in
 #        "com.apple.sound.beep.volume" = 0.0;
 #        "com.apple.sound.beep.feedback" = 0;
       };
-system.defaults.NSGlobalDomain = {
-    
-  };
+
       dock = {
         autohide = false;
         show-recents = false;
@@ -65,7 +63,7 @@ system.defaults.NSGlobalDomain = {
       trackpad = {
         Clicking = true;
         # Enables three-finger drag for moving windows
-#        TrackpadThreeFingerDrag = true;
+        TrackpadThreeFingerDrag = true;
 
         # Enables horizontal swipe with three fingers (for desktops/full-screen apps)
         TrackpadThreeFingerHorizSwipeGesture = 2;
