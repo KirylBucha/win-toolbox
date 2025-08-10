@@ -44,8 +44,8 @@
           if [[ -n "$TMUX" ]]; then
             # Use fzf-tab's bundled helper to open a tmux popup for completion UI
             zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
-            # Some sensible default flags: reverse list, half-height preview with top border
-            zstyle ':fzf-tab:*' fzf-flags '--reverse --preview-window=down,50%,border-top'
+#            # Some sensible default flags: reverse list, half-height preview with top border
+#            zstyle ':fzf-tab:*' fzf-flags '--reverse --preview-window=down,50%,border-top'
           fi
         '';
 
