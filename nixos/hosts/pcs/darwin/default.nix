@@ -62,7 +62,7 @@ in
 
       trackpad = {
         Clicking = true;
-        TrackpadThreeFingerDrag = true;
+#        TrackpadThreeFingerDrag = true;
       };
     };
   };
