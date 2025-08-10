@@ -28,6 +28,7 @@
                                   '';
 
        initExtra = ''
+          # Auto-attach to a default tmux session when starting an interactive shell
           if command -v tmux >/dev/null 2>&1; then
             case $- in
               *i*)
@@ -36,6 +37,15 @@
                 fi
               ;;
             esac
+          fi
+
+          # fzf-tab configuration with tmux popup integration
+          # Use tmux popup for fzf interface when inside tmux (requires tmux >= 3.2)
+          if [[ -n "$TMUX" ]]; then
+            # Use fzf-tab's bundled helper to open a tmux popup for completion UI
+            zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+            # Some sensible default flags: reverse list, half-height preview with top border
+            zstyle ':fzf-tab:*' fzf-flags '--reverse --preview-window=down,50%,border-top'
           fi
         '';
 
@@ -71,6 +81,9 @@
 
            # Visual mode for Zsh
            { name = "b4b4r07/zsh-vimode-visual"; }
+
+           # fzf-based completion plugin with rich UI (tmux popup supported)
+           { name = "Aloxaf/fzf-tab"; }
          ];
        };
 

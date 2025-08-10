@@ -8,8 +8,17 @@ This guide explains how to NixOS on WSL 2.
 ## Set up WSL 2
 
 ### Enable WSL if you haven't done already:
+Check the latest version by [link](https://github.com/microsoft/WSL/releases/).
+
+> **Tip**: In case of exception:
+>  WSL installation appears to be corrupted (Error code: Wsl/CallMsi/Install/REGDB_E_CLASSNOTREG).
+>  Install the WSL latest version.
+>
+{style="tip"}
+
 ```Bash
 wsl --install --no-distribution
+wsl --update
 ```
 
 ### Download nixos.wsl 
@@ -65,7 +74,7 @@ Install temporary tools:
 nix-shell -p git -p vim -p just
 ```
 
-> **IMPORTANT**: A public SSH key is required to clone the repository.
+> **IMPORTANT**: A SSH key is required to clone the repository.
 >
 {style="note"}
 
