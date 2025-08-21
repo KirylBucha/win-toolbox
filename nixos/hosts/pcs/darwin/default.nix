@@ -43,10 +43,10 @@ in
     defaults = {
       NSGlobalDomain = {
        AppleShowAllExtensions = true;
-#        ApplePressAndHoldEnabled = false;
-        KeyRepeat = 2; # Values: 120, 90, 60, 30, 12, 6, 2
-        InitialKeyRepeat = 15; # Values: 120, 94, 68, 35, 25, 15
-
+#      ApplePressAndHoldEnabled = false;
+       KeyRepeat = 2; # Values: 120, 90, 60, 30, 12, 6, 2
+       InitialKeyRepeat = 15; # Values: 120, 94, 68, 35, 25, 15
+  
 #        "com.apple.mouse.tapBehavior" = 1;
 #        "com.apple.sound.beep.volume" = 0.0;
 #        "com.apple.sound.beep.feedback" = 0;
@@ -59,11 +59,18 @@ in
         orientation = "bottom";
 #        tilesize = 48;
       };
-
-      trackpad = {
-        Clicking = true;
-        TrackpadThreeFingerDrag = true;
-      };
+#
+#      trackpad = {
+##        Clicking = true;
+#        # Enables three-finger drag for moving windows
+#        TrackpadThreeFingerDrag = true;
+#
+#        # Enables horizontal swipe with three fingers (for desktops/full-screen apps)
+#        TrackpadThreeFingerHorizSwipeGesture = 2;
+#
+#        # Enables vertical swipe with three fingers (for Mission Control / App Exposé)
+#        TrackpadThreeFingerVertSwipeGesture = 2;
+#      };
     };
   };
 }
