@@ -25,12 +25,15 @@
 
   environment = {
     systemPackages = with pkgs; [
+      alacritty
       bat
       zsh
       tmux
       fzf
       file
       git
+      htop
+      nodejs_22
       btop
       jq
       neovim
