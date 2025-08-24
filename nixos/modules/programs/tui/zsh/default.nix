@@ -55,6 +55,8 @@
             # Use fzf-tab's bundled helper to open a tmux popup for completion UI
             zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
           fi
+
+          LS_COLORS="$LS_COLORS:ow=103;30;01"
         '';
 
        # syntaxHighlighting.enable = true;
