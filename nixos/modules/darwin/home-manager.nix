@@ -1,6 +1,15 @@
 { config, pkgs, lib, inputs, outputs, vars, ... }:
 let
-  user = "${vars.user.name}";
+  # On Darwin, prefer the built-in macOS Terminal.app as the user's terminal
+  darwinVars = vars // {
+    user = vars.user // {
+      packages = vars.user.packages // {
+        terminal = "terminal";
+      };
+    };
+  };
+
+  user = "${darwinVars.user.name}";
 
   env = pkgs.buildEnv {
           name = "system-applications";
@@ -35,7 +44,9 @@ in
     backupFileExtension = "backup";
     # Make inputs and vars available to the imported home module
     extraSpecialArgs = {
-      inherit inputs outputs vars;
+      inputs = inputs;
+      outputs = outputs;
+      vars = darwinVars;
     };
     users.${user} = import ../../modules/home;
   };
