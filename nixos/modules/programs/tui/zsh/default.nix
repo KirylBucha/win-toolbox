@@ -36,9 +36,12 @@
               *i*)
                 if [ -z "$TMUX" ]; then
                   if [[ "$OSTYPE" == darwin* ]]; then
-                    case "''${TERM_PROGRAM:-}" in
-                      Alacritty|alacritty)
+                    case "''${TERM:-}" in
+                      alacritty)
                         tmux attach -t default 2>/dev/null || tmux new -s default
+                      ;;
+                      *)
+                        # Do nothing for Apple Terminal
                       ;;
                     esac
                   else
