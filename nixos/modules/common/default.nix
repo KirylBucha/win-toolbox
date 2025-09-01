@@ -23,6 +23,11 @@
     };
   };
 
+  # Add this list to create symlinks for compatibility
+  systemd.tmpfiles.rules = [
+    "L /usr/bin/whoami - - - - ${pkgs.coreutils}/bin/whoami"
+  ];
+
   environment = {
     systemPackages = with pkgs; [
       alacritty
