@@ -3,6 +3,8 @@ _:
 [
   # Development Tools
   "homebrew/cask/docker"
+  "visual-studio-code"
+  "antigravity"
 
   # Browsers
 #  "google-chrome"
