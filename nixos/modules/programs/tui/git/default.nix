@@ -5,7 +5,7 @@
 }: {
   programs.git = {
     enable = true;
-    userName = "KBucha";
-    userEmail = "KBucha@datamola.com";
+    settings.user.name = "KBucha";
+    settings.user.email = "KBucha@datamola.com";
   };
 }

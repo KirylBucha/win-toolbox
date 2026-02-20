@@ -21,13 +21,9 @@
        enable = true;
        enableCompletion = true;
 
-       # Ensure OMZ uses the writable custom dir in $HOME, not the read-only store ( Solution 1 )
-       #  deprecated: initExtraFirst = ''
        initContent = lib.mkBefore ''
-                                    export ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
-                                  '';
+          export ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 
-       initExtra = ''
           # Auto-attach to a default tmux session when starting an interactive shell
           # Darwin/macOS: do NOT auto-attach by default; only auto-attach when launched from Alacritty.
           # Other OS: auto-attach as before.
