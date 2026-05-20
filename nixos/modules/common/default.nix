@@ -23,10 +23,14 @@
     };
   };
 
-  # Add this list to create symlinks for compatibility
-  systemd.tmpfiles.rules = [
-    "L /usr/bin/whoami - - - - ${pkgs.coreutils}/bin/whoami"
-  ];
+  # Linux-only: create compatibility symlinks via systemd-tmpfiles.
+  # Note: Darwin (macOS) doesn't have the `systemd` option, so guard this.
+  # Also, on macOS, /usr/bin is SIP-protected and cannot be modified.
+#  systemd = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
+#    tmpfiles.rules = [
+#      "L /usr/bin/whoami - - - - ${pkgs.coreutils}/bin/whoami"
+#    ];
+#  };
 
   environment = {
     systemPackages = with pkgs; [
