@@ -14,6 +14,7 @@
 
   networking.hostName = "kb-nixos-vs";
   networking.networkmanager.enable = true;
+  networking.wireless.enable = false;
 
   time.timeZone = vars.system.timeZone;
 
