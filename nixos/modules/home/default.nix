@@ -43,7 +43,7 @@
     homeDirectory = if pkgs.stdenv.hostPlatform.isDarwin
       then "/Users/${vars.user.name}"
       else "/home/${vars.user.name}";
-    stateVersion = "25.05"; # home.stateVersion
+    stateVersion = "26.05"; # home.stateVersion
   };
 
   home.sessionPath = [
