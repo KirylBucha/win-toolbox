@@ -6,7 +6,7 @@ with pkgs; [
   alacritty
   coreutils
   mkalias
-#  openssh
+  openssh
 
   # Encryption and security tools
 #  gnupg
